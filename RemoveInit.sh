@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#fError print usage when option errors
 fError() {
     echo "Repair NodeMCU which runs into infinite loops by removing init.lua."
     echo "Usage: ./RemoveInit.sh -e <esptool.py> -p <port>"
@@ -9,6 +10,7 @@ fError() {
     exit 1
 }
 
+#get arguments from options
 while getopts "e:p:" vOptName
 do
     case ${vOptName} in
@@ -23,6 +25,7 @@ do
         ;;
     esac
 done
+#check whether both arguments have value
 if [ -z ${vEsptool} ]
 then
     fError
@@ -32,4 +35,6 @@ then
     fError
 fi
 
+#write the blank.bin to 0x80000
 ${vEsptool} -p ${vPort} write_flash -fm dio 0x80000 blank.bin >> /dev/null
+
