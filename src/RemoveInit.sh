@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# NodeMCU-RemoveInit by KLsz
+# For more info please visit "https://github.com/KuangLei" or "https://coding.net/u/KLsz"
+# License: GPL v3, CopyLeft KLsz
+
 #fError print usage when option errors
 fError() {
     echo "Repair NodeMCU which runs into infinite loops by removing init.lua."
